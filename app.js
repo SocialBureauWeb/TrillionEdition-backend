@@ -13,7 +13,6 @@ var contactRouter = require('./routes/contactRoutes');
 const eventRouter = require("./routes/eventRoutes");
 const eventRegisterRoutes = require("./routes/eventRegisterRoutes");
 const blogRoutes = require("./routes/blogRoutes");
-    ;
 var app = express();
 
 // CORS
