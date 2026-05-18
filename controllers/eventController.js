@@ -79,9 +79,9 @@ exports.createEvent = async (req, res) => {
     const slug = slugify(req.body.title, { lower: true, strict: true });
     console.log("hiii", req.body, "file:", req.file);
 
-    // Add the file path to the image field
+    // Add the file URL to the image field
     if (req.file) {
-      req.body.image = req.file.path;
+      req.body.image = req.file.location;
     }
 
     const newEvent = new Event({
