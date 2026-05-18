@@ -35,10 +35,11 @@ exports.createBlog = async (req, res) => {
       slug = `${baseSlug}-${index++}`;
     }
 
-    // Image URL (Local Upload)
+    // Image URL (Cloudflare R2 Upload)
     let featuredImage = null;
     if (req.file) {
-      featuredImage = `/uploads/${req.file.filename}`;
+      // Prefer the uploaded location; if not present, build URL from public base
+      featuredImage = req.file.location || `${process.env.R2_PUBLIC_URL.replace(/^https?:\/\//, '')}/${req.file.filename}`;
     }
 
     const blog = await Blog.create({

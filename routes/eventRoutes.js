@@ -8,7 +8,7 @@ const {
   getEventBySlug
 } = require('../controllers/eventController');
 
-const upload = require('../middlewares/cloudinary');
+const upload = require('../middlewares/cloudflare');
 
 router.post('/add', upload.single('image'), createEvent);
 router.get('/list', getEvents);

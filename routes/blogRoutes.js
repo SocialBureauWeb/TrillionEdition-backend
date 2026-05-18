@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const upload = require("../middlewares/upload");
+const upload = require("../middlewares/cloudflare");
 const Blog = require("../models/Blog");
 const { createBlog, getBlogs, getBlogBySlug } = require("../controllers/blogController");
 
