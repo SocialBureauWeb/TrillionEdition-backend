@@ -23,6 +23,7 @@ const cleanEndpoint = ensureHttps(rawEndpoint.replace(/^https?:\/\//, "").split(
 const r2 = new S3Client({
     region: 'us-east-1',
     endpoint: cleanEndpoint,
+    forcePathStyle: true, 
     credentials: {
         accessKeyId: process.env.R2_ACCESS_KEY_ID,
         secretAccessKey: process.env.R2_SECRET_ACCESS_KEY,

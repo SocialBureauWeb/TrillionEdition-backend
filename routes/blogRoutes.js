@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const upload = require("../middlewares/cloudflare");
-const Blog = require("../models/Blog");
 const { createBlog, getBlogs, getBlogBySlug } = require("../controllers/blogController");
+const Blog = require("../models/Blog");
 
 // Create blog (only ONE route)
 router.post("/create", upload.single("featuredImage"), createBlog);
@@ -15,7 +15,6 @@ router.get('/check-title', async (req, res) => {
   try {
     const { title } = req.query || {};
     if (!title || !title.trim()) return res.json({ unique: true });
-
     // case-insensitive exact match
     const escaped = title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     const regex = new RegExp(`^${escaped}$`, 'i');
