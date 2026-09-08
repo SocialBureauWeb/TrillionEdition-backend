@@ -17,7 +17,7 @@ var app = express();
 
 // CORS
 app.use(cors({
-  origin: ["http://localhost:5173", "https://trillionedition.com"],
+  origin: ["http://localhost:5173", "https://trillionedition.com", "https://13.207.200.198.nip.io/trillion", "https://www.trillionedition.com"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
